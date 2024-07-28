@@ -147,7 +147,6 @@
                     <button type="submit" class="btn text-white shadow-sm w-50 nagoyameshi-btn">登録</button>
                 </div>
             </form>
-
             <div class="text-center">
                 <a href="{{ route('login') }}">
                     すでに登録済みの方はこちら
