@@ -12,16 +12,7 @@ use Tests\TestCase;
 
 class AuthenticationTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     */
-    // public function test_example(): void
-    // {
-    //     $response = $this->get('/');
-
-    //     $response->assertStatus(200);
-    // }
-    use RefreshDatabase;
+use RefreshDatabase;
  
      public function test_login_screen_can_be_rendered(): void
      {
@@ -41,7 +32,7 @@ class AuthenticationTest extends TestCase
              'email' => $admin->email,
              'password' => 'nagoyameshi',
          ]);
-        // 管理者としてログインしていることを検証
+ 
          $this->assertTrue(Auth::guard('admin')->check());
          $response->assertRedirect(RouteServiceProvider::ADMIN_HOME);
      }
@@ -57,9 +48,8 @@ class AuthenticationTest extends TestCase
              'email' => $admin->email,
              'password' => 'wrong-password',
          ]);
-        // Userが認証されていない
+ 
          $this->assertGuest();
-         
      }
  
      public function test_admins_can_logout(): void
@@ -68,12 +58,10 @@ class AuthenticationTest extends TestCase
          $admin->email = 'admin@example.com';
          $admin->password = Hash::make('nagoyameshi');
          $admin->save();
-        //  actingAs()メソッドの第二引数に'admin'を指定して、「管理者としてログアウトする」
+ 
          $response = $this->actingAs($admin, 'admin')->post('/admin/logout');
-        
-        //  Userが認証されていない
+ 
          $this->assertGuest();
          $response->assertRedirect('/');
      }
-
 }
