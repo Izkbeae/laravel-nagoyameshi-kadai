@@ -42,20 +42,6 @@
                         <button type="submit" class="btn text-white shadow-sm w-100 nagoyameshi-btn">ログイン</button>
                     </div>
                 </form>
-
-                <hr class="my-4">
-
-                <div class="text-center mb-3">
-                    <a href="{{ route('password.request') }}">
-                        パスワードをお忘れの方はこちら
-                    </a>
-                </div>
-
-                <div class="text-center">
-                    <a href="{{ route('register') }}">
-                        新規会員登録はこちら
-                    </a>
-                </div>
             </div>
         </div>
     </div>
