@@ -12,7 +12,7 @@ use Tests\TestCase;
 
 class AuthenticationTest extends TestCase
 {
-use RefreshDatabase;
+    use RefreshDatabase;
  
      public function test_login_screen_can_be_rendered(): void
      {
@@ -27,12 +27,12 @@ use RefreshDatabase;
          $admin->email = 'admin@example.com';
          $admin->password = Hash::make('nagoyameshi');
          $admin->save();
- 
+
          $response = $this->post('/admin/login', [
              'email' => $admin->email,
              'password' => 'nagoyameshi',
          ]);
- 
+
          $this->assertTrue(Auth::guard('admin')->check());
          $response->assertRedirect(RouteServiceProvider::ADMIN_HOME);
      }
