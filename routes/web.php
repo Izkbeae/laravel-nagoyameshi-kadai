@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\Subscribed;
 use App\Http\Middleware\NotSubscribed;
 use App\Http\Controllers\Admin;
+use App\Http\Controllers\Admin\CompanyController as AdminCompanyController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RestaurantController;
@@ -34,7 +35,7 @@ use App\Http\Controllers\TermController;
     Route::resource('restaurants', RestaurantController::class)->only(['index','show']);
     
     //会社概要ページ
-    Route::get('company', [CompanyController::class, 'index'])->name('company.index');
+    Route::get('company', [AdminCompanyController::class, 'index'])->name('company.index');
     //利用規約ページ
     Route::get('terms', [TermController::class, 'index'])->name('terms.index');
 
