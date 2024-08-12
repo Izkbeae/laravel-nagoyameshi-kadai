@@ -11,7 +11,7 @@ use Laravel\Cashier\Billable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable,Billable;
 
     /**
      * The attributes that are mass assignable.
@@ -49,4 +49,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function favorite_restaurants() {
+                return $this->belongsToMany(Restaurant::class)->withTimestamps();
+            }
 }
