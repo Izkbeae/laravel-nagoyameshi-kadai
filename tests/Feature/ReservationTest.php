@@ -47,7 +47,7 @@ class ReservationTest extends TestCase
     public function test_premium_user_can_access_reservations_index()
     {
         $user = User::factory()->create();
-        $user->newSubscription('premium_plan', 'price_1PbFEHFFQ7vPVWj5ZPg8w5yU')->create('pm_card_visa');
+        $user->newSubscription('premium_plan', 'price_1PmzIoH5h2BCa5s3RVVicy9r')->create('pm_card_visa');
 
         $response = $this->actingAs($user)->get(route('reservations.index'));
 
@@ -93,7 +93,7 @@ class ReservationTest extends TestCase
     public function test_premium_user_can_access_reservations_create()
     {
         $user = User::factory()->create();
-        $user->newSubscription('premium_plan', 'price_1PbFEHFFQ7vPVWj5ZPg8w5yU')->create('pm_card_visa');
+        $user->newSubscription('premium_plan', 'price_1PmzIoH5h2BCa5s3RVVicy9r')->create('pm_card_visa');
 
         $restaurant = Restaurant::factory()->create();
 
@@ -157,15 +157,15 @@ class ReservationTest extends TestCase
     public function test_premium_user_can_access_reservations_store()
     {
         $user = User::factory()->create();
-        $user->newSubscription('premium_plan', 'price_1PbFEHFFQ7vPVWj5ZPg8w5yU')->create('pm_card_visa');
+        $user->newSubscription('premium_plan', 'price_1PmzIoH5h2BCa5s3RVVicy9r')->create('pm_card_visa');
 
         $restaurant = Restaurant::factory()->create();
 
         $reservation_data = [
-            'reservation_date' => '2024-01-01',
-            'reservation_time' => '00:00',
+            'reserved_datetime' => '2024-01-01 00:00',
             'number_of_people' => 10
         ];
+        
 
         $response = $this->actingAs($user)->post(route('restaurants.reservations.store', $restaurant), $reservation_data);
 
@@ -236,7 +236,7 @@ class ReservationTest extends TestCase
     {
         $user = User::factory()->create();
         
-        $user->newSubscription('premium_plan', 'price_1PbFEHFFQ7vPVWj5ZPg8w5yU')->create('pm_card_visa');
+        $user->newSubscription('premium_plan', 'price_1PmzIoH5h2BCa5s3RVVicy9r')->create('pm_card_visa');
         $other_user = User::factory()->create();
 
         $restaurant = Restaurant::factory()->create();
@@ -256,7 +256,7 @@ class ReservationTest extends TestCase
     public function test_premium_user_can_access_own_reservations_destroy()
     {
         $user = User::factory()->create();
-        $user->newSubscription('premium_plan', 'price_1PbFEHFFQ7vPVWj5ZPg8w5yU')->create('pm_card_visa');
+        $user->newSubscription('premium_plan', 'price_1PmzIoH5h2BCa5s3RVVicy9r')->create('pm_card_visa');
 
         $restaurant = Restaurant::factory()->create();
 
