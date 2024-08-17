@@ -162,14 +162,14 @@ class ReservationTest extends TestCase
         $restaurant = Restaurant::factory()->create();
 
         $reservation_data = [
-            'reservation_date' => '2024-01-01',
-            'reservation_time' => '00:00',
+            'reservation_date' => '2024-12-31',
+            'reservation_time' => '21:00',
             'number_of_people' => 10
         ];
 
         $response = $this->actingAs($user)->post(route('restaurants.reservations.store', $restaurant), $reservation_data);
 
-        $this->assertDatabaseHas('reservations', ['reserved_datetime' => '2024-01-01 00:00', 'number_of_people' => 10]);
+        $this->assertDatabaseHas('reservations', ['reserved_datetime' => '2024-12-31 21:00', 'number_of_people' => 10]);
         $response->assertRedirect(route('reservations.index'));
     }
 
