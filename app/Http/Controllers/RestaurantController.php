@@ -29,7 +29,7 @@ class RestaurantController extends Controller
                 
     
             $sort_query = [];
-            $sorted = "created_at desc,lowest_price asc,rating desc,popular desc";
+            $sorted = "created_at desc";
     
             if ($request->has('select_sort')) {
                 $slices = explode(' ', $request->input('select_sort'));
@@ -51,7 +51,7 @@ class RestaurantController extends Controller
                     $query->where('categories.id', $category_id);
                 })->sortable($sort_query)->orderBy('created_at', 'desc')->paginate(15);
             } elseif ($price) {
-                $restaurants = Restaurant::where('lowest_price', '<=', $price)->sortable($sort_query)->orderBy('created_at', 'desc')->paginate(15);
+                $restaurants = Restaurant::where('lowest_price', '<=', $price)->sortable($sort_query)->orderBy('lowest_price', 'asc')->paginate(15);
             } else {
                 $restaurants = Restaurant::sortable($sort_query)->orderBy('created_at', 'desc')->paginate(15);
             }
