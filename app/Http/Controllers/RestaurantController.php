@@ -29,7 +29,7 @@ class RestaurantController extends Controller
                 
     
             $sort_query = [];
-            $sorted = 'created_at desc';
+            $sorted = "created_at desc,lowest_price asc,rating desc,popular desc";
     
             if ($request->has('select_sort')) {
                 $slices = explode(' ', $request->input('select_sort'));
