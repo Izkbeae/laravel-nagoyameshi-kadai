@@ -42,7 +42,7 @@
                         <div class="col">
                             <span>{{ $company->representative }}</span>
                         </div>
-                    </div> 
+                    </div>
                     
                     <div class="row pb-2 mb-2 border-bottom">
                         <div class="col-3">
@@ -52,7 +52,7 @@
                         <div class="col">
                             <span>{{ $company->establishment_date }}</span>
                         </div>
-                    </div>   
+                    </div>
                     
                     <div class="row pb-2 mb-2 border-bottom">
                         <div class="col-3">
@@ -72,7 +72,7 @@
                         <div class="col">
                             <span>{{ $company->business }}</span>
                         </div>
-                    </div>                    
+                    </div>
                     
                     <div class="row pb-2 mb-2 border-bottom">
                         <div class="col-3">
