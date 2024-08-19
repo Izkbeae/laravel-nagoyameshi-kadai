@@ -12,7 +12,7 @@ class Restaurant extends Model
 
     // 定義可能なカスタムソート
     public $sortable = [
-        'rating', 'popular'
+        'rating', 'popular','lowest_price'
     ];
 
     public function categories() {

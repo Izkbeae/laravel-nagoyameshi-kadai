@@ -55,8 +55,9 @@ class RestaurantController extends Controller
             } elseif ($price) {
                 $restaurants = Restaurant::where('lowest_price', '<=', $price)->sortable($sort_query)->orderBy('lowest_price', 'asc')->paginate(15);
             } else {
+                \DB::enableQueryLog();
                 $restaurants = Restaurant::sortable($sort_query)->orderBy('created_at', 'desc')->paginate(15);
-                // dd($restaurants);
+                // dd(\DB::getQueryLog());
             }
     
             $categories = Category::all();
